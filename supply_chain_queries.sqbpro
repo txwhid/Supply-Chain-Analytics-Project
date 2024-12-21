@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="/Users/tawhid/Desktop/Supply_Chain_Analysis/sql_queries/supply_chain.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure query browser pragmas" current="1"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="2682"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><table title="sqlite_sequence" custom_title="0" dock_id="3" table="4,15:mainsqlite_sequence"/><dock_state state="000000ff00000000fd0000000100000002000003560000032dfc0100000003fb000000160064006f0063006b00420072006f00770073006500310100000000ffffffff0000000000000000fb000000160064006f0063006b00420072006f00770073006500320100000000ffffffff0000000000000000fb000000160064006f0063006b00420072006f00770073006500330100000000000003560000015c00ffffff000003560000000000000004000000040000000800000008fc00000000"/><default_encoding codec=""/><browse_table_settings><table schema="main" name="sqlite_sequence" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="44"/><column index="2" value="32"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table></browse_table_settings></tab_browse><tab_sql><sql name="SQL 1*">-- 1. Total Revenue by Product Type
+-- This query calculates the total revenue generated for each product type to identify the top-performing product categories.
+SELECT 
+    product_type, 
+    SUM(revenue_generated) AS total_revenue
+FROM supply_chain_data
+GROUP BY product_type
+ORDER BY total_revenue DESC;
+
+-- 2. Top 5 SKUs by Revenue
+-- This query identifies the top 5 SKUs (stock-keeping units) that generate the highest revenue, helping to focus on best-selling products.
+SELECT 
+    sku, 
+    product_type, 
+    revenue_generated
+FROM supply_chain_data
+ORDER BY revenue_generated DESC
+LIMIT 5;
+
+-- 3. Average Revenue and Units Sold by Product Type
+-- This query calculates the average revenue and units sold per product type to assess overall performance and efficiency.
+SELECT 
+    product_type, 
+    AVG(revenue_generated) AS avg_revenue, 
+    AVG(num_products_sold) AS avg_units_sold
+FROM supply_chain_data
+GROUP BY product_type;
+
+-- 4. Stock Levels by Product Type
+-- This query provides a summary of stock levels for each product type to monitor inventory health.
+SELECT 
+    product_type, 
+    SUM(stock_levels) AS total_stock
+FROM supply_chain_data
+GROUP BY product_type
+ORDER BY total_stock DESC;
+
+-- 5. Products with Critical Stock Levels (&lt;50 Units)
+-- This query identifies products with low stock levels that may need replenishment to avoid stockouts.
+SELECT 
+    product_type, 
+    sku, 
+    stock_levels
+FROM supply_chain_data
+WHERE stock_levels &lt; 50
+ORDER BY stock_levels ASC;
+
+-- 6. Inventory Turnover Rate
+-- This query calculates the turnover rate, which measures how quickly inventory is sold and replaced for each product type.
+SELECT 
+    product_type, 
+    SUM(num_products_sold) AS total_units_sold, 
+    SUM(stock_levels) AS total_stock, 
+    ROUND(SUM(num_products_sold) * 1.0 / SUM(stock_levels), 2) AS turnover_rate
+FROM supply_chain_data
+GROUP BY product_type
+ORDER BY turnover_rate DESC;
+
+-- 7. Average Lead Time by Supplier
+-- This query calculates the average lead time for each supplier to assess their delivery performance.
+SELECT 
+    supplier_name, 
+    AVG(lead_times) AS avg_lead_time
+FROM supply_chain_data
+GROUP BY supplier_name
+ORDER BY avg_lead_time ASC;
+
+-- 8. Supplier Performance: Total Revenue and Defect Rates
+-- This query evaluates supplier performance by summarizing their total revenue contribution and average defect rates.
+SELECT 
+    supplier_name, 
+    SUM(revenue_generated) AS total_revenue, 
+    AVG(defect_rates) AS avg_defect_rate
+FROM supply_chain_data
+GROUP BY supplier_name
+ORDER BY total_revenue DESC;
+
+-- 9. Shipping Costs by Carrier
+-- This query calculates the total shipping costs incurred by each shipping carrier to monitor logistics expenses.
+SELECT 
+    shipping_carriers, 
+    SUM(shipping_costs) AS total_shipping_costs
+FROM supply_chain_data
+GROUP BY shipping_carriers
+ORDER BY total_shipping_costs DESC;
+
+-- 10. Efficiency of Shipping Modes
+-- This query compares the efficiency of different transportation modes by analyzing shipping time and cost.
+SELECT 
+    transportation_modes, 
+    AVG(shipping_times) AS avg_shipping_time,
+    AVG(shipping_costs) AS avg_shipping_cost
+FROM supply_chain_data
+GROUP BY transportation_modes
+ORDER BY avg_shipping_time ASC;
+
+-- 11. Revenue by Customer Demographics
+-- This query analyzes revenue generated by different customer demographics to identify target audiences.
+SELECT 
+    customer_demographics, 
+    SUM(revenue_generated) AS total_revenue
+FROM supply_chain_data
+GROUP BY customer_demographics
+ORDER BY total_revenue DESC;
+
+-- 12. Most Popular Products (Highest Units Sold)
+-- This query lists the top 10 most popular products based on the number of units sold.
+SELECT 
+    product_type, 
+    sku, 
+    SUM(num_products_sold) AS total_units_sold
+FROM supply_chain_data
+GROUP BY product_type, sku
+ORDER BY total_units_sold DESC
+LIMIT 10;
+
+-- 13. Profit Analysis by Product Type
+-- This query calculates the profit margin for each product type by subtracting total costs from total revenue.
+SELECT 
+    product_type, 
+    SUM(revenue_generated) AS total_revenue, 
+    SUM(costs) AS total_costs, 
+    SUM(revenue_generated) - SUM(costs) AS net_profit
+FROM supply_chain_data
+GROUP BY product_type
+ORDER BY net_profit DESC;
+
+-- 14. Defect Rate Analysis by Product Type
+-- This query calculates the average defect rate for each product type to monitor quality control.
+SELECT 
+    product_type, 
+    AVG(defect_rates) AS avg_defect_rate
+FROM supply_chain_data
+GROUP BY product_type
+ORDER BY avg_defect_rate ASC;
+
+-- 15. Supplier Performance Summary
+-- This query provides a comprehensive summary of supplier performance, including total revenue, lead time, and defect rates.
+SELECT 
+    supplier_name, 
+    SUM(revenue_generated) AS total_revenue,
+    AVG(lead_times) AS avg_lead_time,
+    AVG(defect_rates) AS avg_defect_rate
+FROM supply_chain_data
+GROUP BY supplier_name
+ORDER BY total_revenue DESC, avg_lead_time ASC;
+
+-- 16. Best Performing Routes by Transportation Mode
+-- This query evaluates the best-performing transportation routes and modes based on units sold and average costs.
+SELECT 
+    routes, 
+    transportation_modes, 
+    SUM(num_products_sold) AS total_units_sold, 
+    AVG(costs) AS avg_transport_cost
+FROM supply_chain_data
+GROUP BY routes, transportation_modes
+ORDER BY total_units_sold DESC, avg_transport_cost ASC;
+
+-- 17. Overall Performance Summary
+-- This query summarizes key metrics, including total revenue, total costs, average defect rate, and average lead time.
+SELECT 
+    SUM(revenue_generated) AS total_revenue,
+    SUM(costs) AS total_costs,
+    AVG(defect_rates) AS avg_defect_rate,
+    AVG(lead_times) AS avg_lead_time
+FROM supply_chain_data;
+</sql><current_tab id="0"/></tab_sql></sqlb_project>
