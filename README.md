@@ -216,11 +216,137 @@ The project involved writing advanced SQL queries to address key business questi
 - Gained experience in data cleaning, transformation, and visualization preparation.
 - Improved problem-solving skills by addressing real-world business questions using SQL.
 
-## Next Steps
-The next phase of this project involves using **Power BI** to visualize the insights derived from the SQL queries. This will include:
-- Dynamic dashboards showing revenue, inventory, and supplier performance.
-- Interactive filters for product type, location, and customer demographics.
-- Advanced charts like bar graphs, pie charts, and heatmaps to present the findings effectively.
+# Supply Chain Dashboard - Power BI Project
+
+This repository contains a **Power BI dashboard** developed to analyze and visualize supply chain data. The dashboard provides actionable insights into product performance, customer demographics, geographic trends, and operational metrics.
+
+---
+
+## **Project Overview**
+This project demonstrates my proficiency in **Power BI**, showcasing skills in:
+- Data cleaning and transformation.
+- Creating interactive visuals.
+- Building a professional, recruiter-ready dashboard.
+
+The dataset used for this analysis was sourced from **Kaggle** and refined to align with business objectives. The focus is on creating a dynamic and visually appealing dashboard that provides key insights into supply chain operations.
+
+---
+
+## **Key Features**
+### 1. **Dashboard Insights**
+- **Revenue by Product Type**:
+  - A bar chart visualizes the revenue contribution of each product type (e.g., cosmetics, skincare, haircare).
+- **Revenue by Customer Demographics**:
+  - A pie chart highlights the revenue breakdown by customer demographics (e.g., Male, Female, Non-Binary).
+- **Total Revenue**:
+  - A KPI card showcases the overall revenue generated.
+- **Revenue by Location**:
+  - A map visual identifies revenue distribution across major cities.
+- **Revenue by Lead Times**:
+  - A line chart analyzes revenue performance based on lead times.
+
+### 2. **Interactivity**
+- Slicers for filtering data by:
+  - **Product Type**
+  - **Customer Demographics**
+  - **Location**
+- Interactive visuals that allow users to drill down and explore detailed insights.
+
+---
+
+## **Steps Taken**
+### **Step 1: Data Cleaning**
+- Imported the dataset into **Excel** and performed the following tasks:
+  - Removed redundant columns and rows.
+  - Cleaned columns containing symbols (e.g., `$`, `%`, commas).
+  - Verified data types (e.g., decimals for revenue, whole numbers for quantities).
+
+### **Step 2: Data Transformation in Power BI**
+- Imported the cleaned dataset into Power BI.
+- Used **Power Query Editor** to:
+  - Convert columns to appropriate data types (e.g., decimal, whole number, percentage).
+  - Ensure columns like `Revenue generated` and `Defect rates` were ready for aggregation.
+
+### **Step 3: Dashboard Creation**
+- Created and formatted the following visuals:
+  1. **Bar Chart** for revenue by product type.
+  2. **Pie Chart** for revenue by customer demographics.
+  3. **Card Visual** to display total revenue.
+  4. **Line Chart** for revenue trends by lead time.
+  5. **Map Visual** to analyze geographic revenue distribution.
+- Added **slicers** to enhance interactivity and allow dynamic filtering.
+
+### **Step 4: Dashboard Styling**
+- Applied a **dark theme** for a professional and modern look:
+  - Set canvas background to black.
+  - Customized data colors for each chart for better differentiation.
+  - Used white text and contrasting colors for enhanced readability.
+
+---
+
+## **Technologies Used**
+- **Power BI Desktop**:
+  - Data visualization and dashboard creation.
+  - Power Query for data transformation.
+- **Excel**:
+  - Data cleaning and initial analysis.
+- **GitHub**:
+  - Repository for hosting the `.pbix` file and project documentation.
+
+---
+
+## **Dataset**
+The dataset includes fields such as:
+- **Product Type**
+- **Revenue Generated**
+- **Customer Demographics**
+- **Lead Times**
+- **Shipping Costs**
+- **Geographic Locations**
+
+The dataset was cleaned and prepared to ensure accurate and meaningful visualizations.
+
+---
+
+## **How to Use**
+1. **Clone the Repository**:
+   - Use the following command:
+     ```bash
+     git clone https://github.com/yourusername/PowerBI-SupplyChainDashboard.git
+     ```
+2. **Download the `.pbix` File**:
+   - Open the Power BI file in **Power BI Desktop**.
+3. **Explore the Dashboard**:
+   - Use slicers and visuals to explore insights from the data.
+
+---
+
+## **Preview**
+### **Dashboard Preview**
+![Dashboard Preview](![image](https://github.com/user-attachments/assets/03cc75bc-6aee-43e0-a8fd-25b37ae78a08)
+)
+
+---
+
+## **Lessons Learned**
+This project helped me develop skills in:
+1. Cleaning and transforming raw datasets.
+2. Designing interactive dashboards for real-world business insights.
+3. Leveraging Power BI to present data in a professional and recruiter-friendly manner.
+
+---
+
+## **Future Enhancements**
+- Add trend analysis for shipping costs vs. revenue.
+- Integrate additional datasets for broader supply chain insights.
+- Publish the dashboard to Power BI Service for live sharing.
+
+---
+
+## **Author**
+**[Tawhid Khan]**  
+Connect with me on [LinkedIn](linkedin.com/in/tawhid-khan-8b2960297) or check out my other projects on [GitHub](https://github.com/txwhid).
+
 
 ## How to Use This Repository
 1. Clone the repository.
