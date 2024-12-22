@@ -323,7 +323,8 @@ The dataset was cleaned and prepared to ensure accurate and meaningful visualiza
 
 ## **Preview**
 ### **Dashboard Preview**
-![Dashboard Preview](![image](https://github.com/user-attachments/assets/03cc75bc-6aee-43e0-a8fd-25b37ae78a08)
+![Dashboard Preview](![![POWER BI DASHBOARD](https://github.com/user-attachments/assets/7479978f-d692-43ef-b8fa-cc0617a8a67c)
+)
 )
 
 ---
