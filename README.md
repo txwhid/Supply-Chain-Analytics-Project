@@ -308,22 +308,16 @@ The dataset was cleaned and prepared to ensure accurate and meaningful visualiza
 
 ---
 
-## **How to Use**
-1. **Clone the Repository**:
-   - Use the following command:
-     ```bash
-     git clone https://github.com/yourusername/PowerBI-SupplyChainDashboard.git
-     ```
-2. **Download the `.pbix` File**:
-   - Open the Power BI file in **Power BI Desktop**.
-3. **Explore the Dashboard**:
-   - Use slicers and visuals to explore insights from the data.
+## How to Use
+1. Download the `Supply_Chain_Dashboard.pbix` file from this repository.
+2. Open it using **Power BI Desktop** (free to download from Microsoft).
+3. Explore the interactive dashboard and its insights.
 
 ---
 
 ## **Preview**
 ### **Dashboard Preview**
-!Dashboard Preview[![POWER BI DASHBOARD](https://github.com/user-attachments/assets/7479978f-d692-43ef-b8fa-cc0617a8a67c)
+![POWER BI DASHBOARD](https://github.com/user-attachments/assets/7479978f-d692-43ef-b8fa-cc0617a8a67c)
 
 
 ---
