@@ -32,7 +32,7 @@ This project demonstrates end-to-end data analytics skills by analyzing a supply
  ![image1](https://github.com/user-attachments/assets/c1e49711-2911-4f96-8662-27389fc1778a)
 
   
-- After cleaning: A clean dataset suitable for analysis and visualization.
+- After cleaning: A clean dataset suitable for analysis and visualization. (Complete cleaning including removing currency symbols etc were done later)
   ![image7](https://github.com/user-attachments/assets/b33d198b-099a-468f-b8b1-41fad2b68fc6)
 
 - Pivot Tables.
